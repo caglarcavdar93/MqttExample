@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MqttConsumer.Models
+﻿
+namespace MqttConsumer
 {
     public class ConsumerDataService
     {
