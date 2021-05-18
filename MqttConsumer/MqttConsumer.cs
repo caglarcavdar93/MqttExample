@@ -13,6 +13,7 @@ namespace MqttConsumer
         public MqttConsumer()
         {
             _mqttClient = new MqttClient("localhost");
+            _mqttClient.MqttMsgPublishReceived += _mqttClient_MqttMsgPublishReceived;
             _mqttClient.Connect("myUniqueId");
             _dataService = new ConsumerDataService();
         }
@@ -22,7 +23,6 @@ namespace MqttConsumer
             try
             {
                 _mqttClient.Subscribe(topic, new byte[] { MqttMsgBase.QOS_LEVEL_EXACTLY_ONCE });
-                _mqttClient.MqttMsgPublishReceived += _mqttClient_MqttMsgPublishReceived;
                 return true;
             }
             catch (Exception)
